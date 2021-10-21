@@ -6,17 +6,17 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:18:18 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/18 16:18:19 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/10/21 18:34:56 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int ch)
+int	ft_toupper(int c)
 {
-	if (ch >= 'a' && ch <= 'z')
-		return (ch - 32);
-	return (ch);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }
 
 // int	main(void)

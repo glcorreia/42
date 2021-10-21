@@ -6,15 +6,15 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 14:24:01 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/20 14:43:06 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/10/21 18:28:00 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (src[i] != '\0' && i < dstsize)
@@ -30,7 +30,12 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 // {
 // 	char	str1[20] = "Big bada boom";
 // 	char	str2[20];
+// 	char	str3[20] = "Big bada boom";
+// 	char	str4[20];
 // 	int		size = 3;
 
 // 	printf("%zu\n", ft_strlcpy(str2, str1, size));
+// 	printf("%s\n\n", str2);
+// 	printf("%zu\n", ft_strlcpy(str4, str3, size));
+// 	printf("%s\n", str4);
 // }

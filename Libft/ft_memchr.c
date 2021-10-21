@@ -6,18 +6,18 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 12:53:18 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/21 13:34:13 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/10/21 17:52:53 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *str, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	while (n--)
 	{
-		if (*(unsigned char *)str++ == (unsigned char)c)
-			return ((void *)str - 1);
+		if (*(unsigned char *)s++ == (unsigned char)c)
+			return ((void *)s - 1);
 	}
 	return (NULL);
 }

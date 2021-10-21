@@ -6,13 +6,13 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:17:40 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/18 16:17:41 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/10/21 17:50:35 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(char c)
+int	ft_isalnum(int c)
 {
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);

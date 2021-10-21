@@ -6,37 +6,40 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 14:43:47 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/20 15:48:15 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/10/21 17:48:44 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
-	int		dstsize;
+	size_t	j;
 
 	i = 0;
-	dstsize = ft_strlen(dst);
-	if (dstsize == 0 || dstsize >= size)
-	{
-		return (size);
-	}
-	while (dstsize + i < size)
-	{
-		dst[dstsize + i] = src[i];
+	while (dst[i] && i < dstsize)
 		i++;
+	j = 0;
+	while (src[j] && (i + j + 1) < dstsize)
+	{
+		dst[i + j] = src[j];
+		j++;
 	}
-	dst[dstsize + i] = '\0';
-	return (size);
+	if (i < dstsize)
+		dst[i + j] = '\0';
+	return (i + ft_strlen(src));
 }
 
 // int	main(void)
 // {
 // 	char	str1[20] = "123456";
 // 	char	str2[20] = "abcdef";
-// 	int		size = 9;
+// 	char	str3[20] = "123456";
+// 	char	str4[20] = "abcdef";
+// 	int		size = 12;
 
-// 	printf("%zu\n", ft_strlcat(str1, str2, size));
+// 	printf("%zu | ", ft_strlcat(str1, str2, size));
+// 	printf("%zu\n", strlcat(str3, str4, size));
+// 	printf("%s | %s\n", str1, str3);
 // }

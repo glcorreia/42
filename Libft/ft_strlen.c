@@ -6,18 +6,18 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:18:11 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/18 16:18:12 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/10/21 17:31:44 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlen(char *str)
+size_t	ft_strlen(const char *s)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (str[i])
+	while (s[i])
 		i++;
 	return (i);
 }

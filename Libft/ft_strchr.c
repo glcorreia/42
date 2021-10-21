@@ -6,22 +6,19 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:18:06 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/18 16:18:07 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/10/21 18:04:07 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-const char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
+	while (s)
 	{
-		if (str[i] == c)
-			return (&str[i]);
-		i++;
+		if (*s == c)
+			return ((void *)s);
+		s++;
 	}
 	return (NULL);
 }

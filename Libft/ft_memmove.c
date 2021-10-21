@@ -6,36 +6,36 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 11:24:31 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/21 12:49:52 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/10/21 17:56:22 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	unsigned int	i;
 
-	if (!dest && !src)
+	if (!dst && !src)
 		return (NULL);
 	i = 0;
-	if (dest > src)
+	if (dst > src)
 	{
-		while (n > 0)
+		while (len > 0)
 		{
-			((char *)dest)[n - 1] = ((char *)src)[n - 1];
-			n--;
+			((char *)dst)[len - 1] = ((char *)src)[len - 1];
+			len--;
 		}
 	}
 	else
 	{
-		while (i < n)
+		while (i < len)
 		{
-			((char *)dest)[i] = ((char *)src)[i];
+			((char *)dst)[i] = ((char *)src)[i];
 			i++;
 		}
 	}	
-	return (dest);
+	return (dst);
 }
 
 // int	main(void)
