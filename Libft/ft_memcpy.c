@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 16:17:35 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/21 14:42:32 by gnuno-pa         ###   ########.fr       */
+/*   Created: 2021/10/21 10:44:03 by gnuno-pa          #+#    #+#             */
+/*   Updated: 2021/10/21 11:24:00 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t	i;
-	char	*str;
+	size_t			i;
+	unsigned char	*new_dest;
+	unsigned char	*new_src;
 
-	str = (char *)s;
+	new_dest = dest;
+	new_src = (unsigned char *) src;
 	i = 0;
-	while (str[i])
+	while (i < n)
 	{
-		if (i >= n)
-			str[i] = 0;
+		*new_dest++ = *new_src++;
 		i++;
 	}
+	return (dest);
 }
 
 // int	main(void)
 // {
-// 	char src[20] = "carro";
-// 	ft_bzero(src, 2);
+// 	char	src[50] = "www.google.com";
+// 	char	dest[50];
+// 	printf("%s", ft_memcpy(dest, src, ft_strlen(src) + 1));
 // }

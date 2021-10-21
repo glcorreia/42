@@ -6,7 +6,7 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:17:00 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/20 15:48:29 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/10/21 15:37:23 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,10 @@ int				ft_strncmp(const char *str1, const char *str2, size_t n);
 char			*ft_strnstr(char *fullStr, char *searchStr, size_t len);
 size_t			ft_strlcpy(char *dst, char *src, size_t dstsize);
 size_t			ft_strlcat(char *dst, char *src, size_t size);
+void			*ft_memcpy(void *dest, const void *src, size_t n);
+void			*ft_memmove(void *dest, const void *src, size_t n);
+void			*ft_memchr(const void *str, int c, size_t n);
+void			*ft_memset(void *str, int c, size_t n);
+int				ft_memcmp(const void *str1, const void *str2, size_t n);
 
 #endif

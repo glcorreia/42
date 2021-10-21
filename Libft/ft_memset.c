@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 16:17:35 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/21 14:42:32 by gnuno-pa         ###   ########.fr       */
+/*   Created: 2021/10/21 13:50:50 by gnuno-pa          #+#    #+#             */
+/*   Updated: 2021/10/21 14:11:43 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memset(void *str, int c, size_t n)
 {
-	size_t	i;
-	char	*str;
+	unsigned char	*new_str;
 
-	str = (char *)s;
-	i = 0;
-	while (str[i])
-	{
-		if (i >= n)
-			str[i] = 0;
-		i++;
-	}
+	new_str = (unsigned char *)str;
+	while (n--)
+		*new_str++ = c;
+	return (str);
 }
 
 // int	main(void)
 // {
-// 	char src[20] = "carro";
-// 	ft_bzero(src, 2);
+// 	char	str[50] = "Quinta feira, 21 Outubro 2021";
+
+// 	printf("%s", ft_memset(str, '+', 6));
 // }

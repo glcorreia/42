@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 16:17:35 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/21 14:42:32 by gnuno-pa         ###   ########.fr       */
+/*   Created: 2021/10/21 12:53:18 by gnuno-pa          #+#    #+#             */
+/*   Updated: 2021/10/21 13:34:13 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	size_t	i;
-	char	*str;
-
-	str = (char *)s;
-	i = 0;
-	while (str[i])
+	while (n--)
 	{
-		if (i >= n)
-			str[i] = 0;
-		i++;
+		if (*(unsigned char *)str++ == (unsigned char)c)
+			return ((void *)str - 1);
 	}
+	return (NULL);
 }
 
 // int	main(void)
 // {
-// 	char src[20] = "carro";
-// 	ft_bzero(src, 2);
+// 	char	str[20] = "www.google.com";
+// 	char	chr = '.';
+// 	printf("%s", ft_memchr(str, chr, ft_strlen(str)));	 
 // }
