@@ -10,43 +10,53 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include "libft.h"
+#include "libft.h"
+
+int	check_spaces(const char *str)
+{
+	int	i;
+	int	spaces;
+
+	i = 0;
+	spaces = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
+			str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+			spaces++;
+		i++;
+	}
+	return (spaces);
+}
 
 int	ft_atoi(const char *str)
 {
 	int		nbr;
 	int		i;
+	int		isPos;
 
-	i = 0;
-	while (str)
+	i = check_spaces(str);
+	nbr = 0;
+	isPos = 1;
+	if (str[i] == '-')
 	{
-		if (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
-			str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
-			i++;
-		else if (str[i] >= 0 && str[i] <= 9)
-			break;
-		else if (str[i] == '-')
-		{
-			nbr = -1;
-			break;
-		}
+		isPos = -1;
+		i++;
+	}
+	while (str[i])
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+			nbr = (nbr * 10) + (str[i] - 48);
 		else
 			return (0);
-		str++;	
+		i++;
 	}
-	while (str)
-	{
-		if (str[i] < 0 || str[i] > 9)
-			return (0);
-			
-		str++;
-	}
-			
+	return (nbr * isPos);
 }
 
 int	main(void)
 {
-	char	str[15] = "-12345";
+	char	str[15] = " -123";
 	
-	printf("string: %s to int: %d", str, ft_atoi(str));
-}*/
+	printf("%d", ft_atoi(str));
+}
