@@ -54,9 +54,9 @@ int	ft_atoi(const char *str)
 	return (nbr * isPos);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	str[15] = " -123";
 	
 	printf("%d", ft_atoi(str));
-}
+}*/
