@@ -12,35 +12,6 @@
 
 #include "libft.h"
 
-static int	check_start(const char *str, const char *set)
-{
-	size_t	i;
-	size_t	len;
-
-	len = ft_strlen(str);
-	i = 0;
-	while (i < len)
-	{
-		if (ft_strchr(set, str[i]) == 0)
-			break ;
-		i++;
-	}
-	return (i);
-}
-
-char	*ft_strtrim(const char *s1, const char *set)
-{
-	//char	*new_str;
-	size_t	start;
-	/*size_t	end;
-	size_t	i;
-
-	i = 0;*/
-	
-	start = check_start(s1, set);
-	printf("\n%d:", start);
-	
-}
 /*	x correr str 1 a 1
 **	x a cada iteraccao correr while de set. => funcao: static int check_set(*str, *set) return 1/0
 **	x quando deixar de encontrar, define start pos
@@ -52,11 +23,65 @@ char	*ft_strtrim(const char *s1, const char *set)
 **	return new_str
 */
 
+static int	check_start(const char *s1, const char *set)
+{
+	size_t	i;
+
+	i = 0;
+	while(i < ft_strlen(set))
+	{
+		if (*s1 == set[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+static int	check_end(const char *s1, const char *set)
+{
+	size_t	i;
+
+	i = 0;
+	while(i < ft_strlen(set))
+	{
+		if (*s1 == set[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	start;
+	size_t	end;
+	char	*result;
+
+	start = 0;
+	while(ft_strlen(s1) && check_start(s1, set) == 1) // CHECK START POS
+	{
+		start++;
+		s1++;
+	}
+	end = ft_strlen(s1) - 1;	
+	while(s1[end] && check_end((char *)&s1[end], set) == 1) // CHECK END POS
+		end--;
+	start = 0;
+	result = (char *)malloc(sizeof(char) * (end + 1) + 1);
+	if (!result)
+		return (NULL);
+	while (end-- + 1 > 0)
+		result[start] = s1[start++];
+	result[start] = '\0';
+	return (result);
+}
+
+
 
 int	main(void)
 {
-	char	str[50] = ", .abc..";
-	char	set[3] = {'.', ',', ' '};
+	char	str[50] = ",  ,   , ..abc. ,  .";
+	char	set[50] = ",. ";
 	char	*result;
 	
 	result = ft_strtrim(str, set);
