@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   _ft_split.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 16:35:40 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/27 16:36:49 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/11/09 16:21:47 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ size_t	count_words(char const *s, char c)
 	return (count);
 }
 
-char	**ft_split(char const *s, char	c)
+char	**ft_split(char const *s, char c)
 {
 	size_t		len;
 	size_t		index;

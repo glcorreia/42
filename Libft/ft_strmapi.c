@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   _ft_strmapi.c                                      :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 16:41:03 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/27 16:52:34 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/11/09 16:23:56 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*new_str;
 	unsigned int	i;
 	unsigned int	len;
-	
 
 	if (!s || !f)
 		return (NULL);
