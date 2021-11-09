@@ -6,7 +6,7 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:17:35 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/21 14:42:32 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/11/09 18:19:55 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@ void	ft_bzero(void *s, size_t n)
 	size_t	i;
 	char	*str;
 
-	str = (char *)s;
+	str = s;
 	i = 0;
-	while (str[i])
+	while (i < n)
 	{
-		if (i >= n)
-			str[i] = 0;
+		str[i] = '\0';
 		i++;
 	}
 }

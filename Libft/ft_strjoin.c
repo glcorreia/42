@@ -6,7 +6,7 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 16:11:21 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/25 16:46:15 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/11/09 18:59:20 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	i;
 	size_t	j;
 
+	if (!s1 || !s2)
+		return (NULL);
 	i = ft_strlen(s1) + ft_strlen(s2);
 	join_str = (char *)malloc(sizeof(char) * (i + 1));
 	if (!join_str)

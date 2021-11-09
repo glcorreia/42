@@ -6,7 +6,7 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 10:44:03 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/21 17:54:29 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/11/09 19:13:55 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,13 @@
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t			i;
-	unsigned char	*new_dst;
-	unsigned char	*new_src;
 
-	new_dst = dst;
-	new_src = (unsigned char *) src;
 	i = 0;
+	if (!dst && !src)
+		return (NULL);
 	while (i < n)
 	{
-		*new_dst++ = *new_src++;
+		((char *)dst)[i] = ((unsigned char *)src)[i];
 		i++;
 	}
 	return (dst);

@@ -6,7 +6,7 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:31:22 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/21 18:23:01 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/11/09 18:38:06 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	s_len;
+	unsigned int	size;
 
-	s_len = ft_strlen(s);
-	while (s_len > 0)
+	size = ft_strlen((char *)s);
+	while (s[size] != (char)c && size != 0)
 	{
-		if (s[s_len] == (char)c)
-			return ((char *)&s[s_len]);
-		s_len--;
+		size--;
 	}
+	if (s[size] == (char)c)
+		return ((char *)&s[size]);
 	return (NULL);
 }
 

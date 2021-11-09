@@ -6,56 +6,70 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 16:35:40 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/11/09 16:21:47 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/11/09 19:42:06 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	count_words(char const *s, char c)
+static int	nb_words(const char *str, char c)
 {
-	size_t	count;
+	int	i;
+	int	flag;
 
-	count = 0;
-	while (*s != '\0')
+	i = 0;
+	flag = 0;
+	while (*str)
 	{
-		if (*s != c)
+		if (*str != c && flag == 0)
 		{
-			count++;
-			while (*s != '\0' && *s != c)
-				s++;
+			flag = 1;
+			i++;
 		}
-		else
-			s++;
+		else if (*str == c)
+			flag = 0;
+		str++;
 	}
-	return (count);
+	return (i);
+}
+
+static char	*word_dup(const char *str, int start, int finish)
+{
+	char	*word;
+	int		i;
+
+	i = 0;
+	word = (char *)malloc(sizeof(char) * (finish - start + 1));
+	while (start < finish)
+		word[i++] = str[start++];
+	word[i] = '\0';
+	return (word);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t		len;
-	size_t		index;
-	const char	*start;
-	char		**split;
+	size_t	i;
+	size_t	j;
+	int		index;
+	char	**split;
 
-	split = (char **) malloc(sizeof(*split) * ((count_words(s, c)) + 1));
-	if (!split)
-		return (0);
-	index = 0;
-	while (*s != '\0')
+	split = (char **)malloc(sizeof(char *) * (nb_words(s, c) + 1));
+	if (!s || !split)
+		return (NULL);
+	i = 0;
+	j = 0;
+	index = -1;
+	while (i <= ft_strlen(s))
 	{
-		while (*s && *s == c)
-			s++;
-		start = s;
-		len = 0;
-		while (*s && *s != c)
+		if (s[i] != c && index < 0)
+			index = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
 		{
-			s++;
-			len++;
+			split[j++] = word_dup(s, index, i);
+			index = -1;
 		}
-		if (*(s - 1) != c)
-			split[index++] = ft_substr(start, 0, len);
+		i++;
 	}
-	split[index] = 0;
+	split[j] = 0;
 	return (split);
 }

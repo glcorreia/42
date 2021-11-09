@@ -6,7 +6,7 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 15:32:09 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/25 16:10:39 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/11/09 18:57:31 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,30 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		i;
-	char	*substr;
+	size_t	i;
+	size_t	j;
+	size_t	s_len;
+	char	*new;
 
-	substr = (char *)malloc(sizeof(char) * (len + 1));
-	if (!substr)
+	if (!s)
+		return (NULL);
+	s_len = ft_strlen(s);
+	if (s_len < len)
+		new = (char *)malloc(sizeof(char) * (s_len + 1));
+	else
+		new = (char *)malloc(sizeof(char) * (len + 1));
+	if (!new)
 		return (NULL);
 	i = 0;
-	while (i < len)
+	j = 0;
+	while (s[i])
 	{
-		substr[i] = s[start + i];
+		if (i >= start && j < len)
+			new[j++] = s[i];
 		i++;
 	}
-	return (substr);
+	new[j] = '\0';
+	return (new);
 }
 
 // int	main(void)

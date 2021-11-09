@@ -6,7 +6,7 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 11:48:22 by marvin            #+#    #+#             */
-/*   Updated: 2021/11/09 16:18:44 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/11/09 19:13:45 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*back;
 
-	if (!lst || !new)
-		return ;
-	if (*lst == NULL)
+	back = *lst;
+	if (!back)
 	{
 		*lst = new;
 		return ;

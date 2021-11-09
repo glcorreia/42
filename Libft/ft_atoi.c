@@ -6,54 +6,39 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:38:45 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/25 13:52:35 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/11/09 19:14:50 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	check_spaces(const char *str)
-{
-	int	i;
-	int	spaces;
-
-	i = 0;
-	spaces = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-			|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
-			spaces++;
-		else
-			break ;
-		i++;
-	}
-	return (spaces);
-}
-
 int	ft_atoi(const char *str)
 {
-	int		nbr;
-	int		i;
-	int		is_pos;
+	int	i;
+	int	sign;
+	int	new;
 
-	i = check_spaces(str);
-	nbr = 0;
-	is_pos = 1;
-	if (str[i] == '-')
+	i = 0;
+	sign = 1;
+	while ((str[i] == ' ' || str[i] == '\n'
+			|| str[i] == '\t' || str[i] == '\v'
+			|| str[i] == '\f' || str[i] == '\r') && str[i])
+		i++;
+	if ((str[i] == '-' || str[i] == '+') && str[i])
 	{
-		is_pos = -1;
+		if (str[i] == '-')
+		{
+			sign = -1;
+		}
 		i++;
 	}
-	while (str[i])
+	new = 0;
+	while ((str[i] >= '0' && str[i] <= '9') && str[i])
 	{
-		if (str[i] >= '0' && str[i] <= '9')
-			nbr = (nbr * 10) + (str[i] - 48);
-		else
-			break ;
+		new = (new * 10) + (str[i] - '0');
 		i++;
 	}
-	return (nbr * is_pos);
+	return (sign * new);
 }
 
 // int	main(void)

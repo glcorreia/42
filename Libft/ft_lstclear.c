@@ -6,7 +6,7 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 15:14:04 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/11/09 16:19:14 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/11/09 19:12:16 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 
 	if (lst)
 	{
-		while (lst)
+		while (*lst)
 		{
 			temp = (*lst)->next;
 			ft_lstdelone(*lst, del);
-			*lst = temp;
+			(*lst) = temp;
 		}
 	}
 }

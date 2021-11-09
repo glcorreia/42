@@ -6,7 +6,7 @@
 /*   By: gnuno-pa <gnuno-pa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 11:01:08 by gnuno-pa          #+#    #+#             */
-/*   Updated: 2021/10/21 18:33:58 by gnuno-pa         ###   ########.fr       */
+/*   Updated: 2021/11/09 19:16:22 by gnuno-pa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,25 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
 	size_t	j;
-	size_t	match;
 
+	if (*needle == '\0' || needle == NULL)
+		return ((char *)haystack);
 	i = 0;
-	j = ft_strlen(needle);
-	match = 0;
-	if (j == 0)
-		return ((void *)haystack);
-	while (i < ft_strlen(haystack))
+	while (haystack[i] && i < len)
 	{
-		if (haystack[i] == needle[match])
-			match++;
-		else
-			match = 0;
-		if (match == len)
-			return ((char *)&haystack[i - match + 1]);
+		j = 0;
+		if (haystack[i] == needle[j])
+		{
+			while (i + j < len && haystack[i + j] == needle[j])
+			{
+				if (needle[j + 1] == '\0')
+					return ((char *)&haystack[i]);
+				j++;
+			}
+		}
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
 
 // int	main(void)
