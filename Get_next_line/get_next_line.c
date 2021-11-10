@@ -14,7 +14,6 @@
 
 char	*get_next_line(int fd)
 {
-	int		ret;
 	char	buf[4096];
 	
 	while ((read(fd, buf, 4096)) > 0)
